@@ -89,7 +89,7 @@ public class TriviaServer {
     public static void main(String[] args) throws IOException {
         // create a server socket to listen for client connections
         final String[] clientSentence = new String[1];
-        ServerSocket welcomeSocket = new ServerSocket(8080);
+        ServerSocket welcomeSocket = new ServerSocket(3000);
         ExecutorService executor = Executors.newFixedThreadPool(2);
         System.out.println("while dışında");
         Vector<String> usernames = new Vector<String>();
