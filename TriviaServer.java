@@ -25,7 +25,7 @@ public class TriviaServer {
     private static int responded = 0;
 
 
-    // list of sample trivia questions
+    // list of sample trivia questioans
     static String[] QUESTIONS = {
             "Who is the most handsome professor of CMPE Department?",
             "What is most entertaining CC Class in CMPE Department?",
@@ -120,7 +120,7 @@ public class TriviaServer {
 
 
                     if(clientMsg.get(0).equals("start")){ //starta basarsa
-                        outToClient.println("Welcome " + clientMsg.get(1) + ". after each player press to the next button.");
+                        outToClient.println("Welcome " + clientMsg.get(1) + ". Each question will come after each player press to the next button.");
                         usernames.add(clientMsg.get(1));
 
 
@@ -229,8 +229,14 @@ public class TriviaServer {
 
 
                         }else{
-                            System.out.println("cevabı: " + clientMsg.get(0) + " answer: " + ANSWERS[index-1] + "coorect: " + correct1);
-                            outToClient.println(correct1);
+
+                            if(clientMsg.get(1).equals(usernames.get(0))) {
+                                outToClient.println(correct1);
+                            }
+                            else if(clientMsg.get(1).equals(usernames.get(1))){
+                                outToClient.println(correct2);
+                            }
+                            
                         }
                     }
                     connectionSocket.close();
